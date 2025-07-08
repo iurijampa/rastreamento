@@ -1,0 +1,38 @@
+/* Remove margem, padding e garante que o fundo ocupe tudo */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(0, 47, 255);
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Garante que o #root preencha tudo e centralize corretamente */
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+}
+
+/* Remove qualquer max-width que limite o conteúdo */
+.container {
+  width: 100%;
+  max-width: none !important;
+  padding: 24px 16px;
+}
+
+/* Força o body a sempre ficar azul */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 47, 255);
+  z-index: -1;
+}

@@ -16,7 +16,7 @@ function App() {
     const buscar = async () => {
       const { data } = await supabase
         .from('atividades')
-        .select('cliente, pedido, status, setorAtual, dataEntrega, thumb')
+        .select('cliente, pedido, status, setorAtual, dataEntregaCliente, thumb')
         .eq('id', id)
         .single();
 
@@ -103,7 +103,12 @@ function App() {
       <p style={styles.entrega}>
         Previsão de entrega:
         <br />
-        <span style={styles.dataEntrega}>{pedido.dataEntrega || '-'}</span>
+        <span style={styles.dataEntrega}>
+  {pedido.dataEntregaCliente
+    ? new Date(pedido.dataEntregaCliente).toLocaleDateString('pt-BR')
+    : '-'}
+</span>
+
       </p>
 
       <div style={styles.socialLinks}>

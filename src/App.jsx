@@ -15,10 +15,11 @@ function App() {
   useEffect(() => {
     const buscar = async () => {
       const { data } = await supabase
-        .from('atividades')
-        .select('cliente, pedido, status, setorAtual, dataEntregaCliente, thumb')
-        .eq('id', id)
-        .single();
+  .from('atividades')
+  .select('cliente, pedido, status, setorAtual, dataEntregaCliente, dataEntrega, thumb')
+  .eq('id', id)
+  .single();
+
 
       setPedido(data);
       setLoading(false);
@@ -105,8 +106,11 @@ function App() {
         <br />
         <span style={styles.dataEntrega}>
   {pedido.dataEntregaCliente
-    ? new Date(pedido.dataEntregaCliente).toLocaleDateString('pt-BR')
+  ? new Date(pedido.dataEntregaCliente).toLocaleDateString('pt-BR')
+  : pedido.dataEntrega
+    ? new Date(pedido.dataEntrega).toLocaleDateString('pt-BR')
     : '-'}
+
 </span>
 
       </p>

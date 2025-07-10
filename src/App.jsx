@@ -187,9 +187,9 @@ const styles = {
     color: '#FFFFFF'
   },
   dataEntrega: {
-    fontSize: 16,
+    fontSize: 25,
     fontWeight: 600,
-    color: '#0f172a'
+    color: '#FFFFFF'
   },
   loading: {
     textAlign: 'center',
